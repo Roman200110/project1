@@ -8,20 +8,6 @@ const double degreToRad = M_PI / 180;
 
 using namespace std;
 using namespace cv;
-Mat RightRotate(Mat img)
-{
-	Mat res(img.cols, img.rows, img.type());
-	for (auto i = 0; i < img.rows; i++)
-	{
-		for (auto j = 0; j < img.cols; j++)
-		{
-			res.at<Vec3b>(j, img.rows - i - 1) = img.at<Vec3b>(i, j);
-		}
-	}
-
-	return res;
-}
-
 
 cv::Point rotatePoint(const cv::Point& p, double alpha)
 {
@@ -57,16 +43,6 @@ cv::Mat rotateImage(const cv::Mat& src, double alpha)
 int g_slider_position = 0;
 int g_run = 1, g_dontset = 0; //start out in single step mode
 cv::VideoCapture g_cap;
-
-void onTrackbarSlide(int pos, void*) {
-
-	g_cap.set(cv::CAP_PROP_POS_FRAMES, pos);
-
-	if (!g_dontset)
-		g_run = 1;
-	g_dontset = 0;
-
-}
 
 
 int main()
