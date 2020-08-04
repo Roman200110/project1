@@ -40,11 +40,6 @@ cv::Mat rotateImage(const cv::Mat& src, double alpha)
 }
 
 
-int g_slider_position = 0;
-int g_run = 1, g_dontset = 0; //start out in single step mode
-cv::VideoCapture g_cap;
-
-
 int main()
 {
 
